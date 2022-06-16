@@ -1,0 +1,13 @@
+CREATE PROCEDURE [dbo].[sp_BulkUpdate]
+@strXaml Varchar(MAX)
+AS
+Declare @Xml XML
+SET @Xml= CAST(@strXaml As XML)
+INSERT INTO Registration([FirstName],[LastName],[Password])
+SELECT
+[Table].[Column].value('FirstName[1]', 'varchar(50)') as 'FirstName',
+[Table].[Column].value(' LastName[1]', 'varchar(50)') as 'LastName',
+[Table].[Column].value(' Password[1]', 'varchar(50)') as 'Password'
+ FROM @Xml.nodes('/DocumentElement/TableName') as [Table]([Column])
+
+GO
