@@ -1,0 +1,29 @@
+{
+	"Settings": [{
+			"Name": "logF_BusinessProcessName",
+			"Value": "Framework",
+			"Description": "Logging field which allows grouping of log data of two or more subprocesses under the same business process name"
+		},
+		{
+			"Name": "OrchestratorQueueName",
+			"Value": "KibanaDemoQueue",
+			"Description": "Orchestrator queue Name. The value must match with the queue name defined on Orchestrator."
+		}
+	],
+	"Constants": [{
+			"Name": "MaxRetryNumber",
+			"Value": "1",
+			"Description": "Must be 0 if working with Orchestrator queues."
+		},
+		{
+			"Name": "ExScreenshotsFolderPath",
+			"Value": "Exceptions_Screenshots",
+			"Description": "Where to save exceptions screenshots - can be a full or a relative path."
+		}
+	],
+	"Assets": [{
+		"Name": "FolderPath",
+		"Asset": "FolderPath",
+		"Description": "Project folder"
+	}]
+}
