@@ -1,0 +1,12 @@
+Name: Manoj   0
+Amount: 100   1 
+Department: CR   2
+Name: Gaurav
+Amount: 200
+Department: DR
+Name: Neezam
+Amount: 300
+Department: CR
+Name: VK
+Amount: 500
+Department: CR
