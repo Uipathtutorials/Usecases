@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ExceptionHandlingSequence" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="936,515" sap2010:WorkflowViewState.IdRef="ExceptionHandlingSequence_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ExceptionHandlingSequence" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="936,515" sap2010:WorkflowViewState.IdRef="ExceptionHandlingSequence_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
       <x:String>System.Activities</x:String>
@@ -46,15 +46,16 @@
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ExceptionHandlingSequence" sap:VirtualizedContainerService.HintSize="307,134" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ExceptionHandlingSedfdfquence" sap:VirtualizedContainerService.HintSize="376,275" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="scg:List(x:String)" Name="List">
-        <Variable.Default>
-          <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="New List(of String)" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="scg:List(x:String)" Default="[New List(of String)]" Name="List" />
       <Variable x:TypeArguments="x:String" Name="variable1" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -62,6 +63,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <AddToCollection x:TypeArguments="x:String" Collection="[List]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="265,32" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="UiPath" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;sdsd&quot;]" />
+    <AddToCollection x:TypeArguments="x:String" Collection="[List]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="334,32" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="UiPath" />
   </Sequence>
 </Activity>
