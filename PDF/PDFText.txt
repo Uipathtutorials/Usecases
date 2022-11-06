@@ -1,0 +1,10 @@
+ Correcting Transaction
+ 
+ Financial
+		AARP	$81,930.06	5,271	$66,875.00	4,491	$15,055.06	780
+		INTRA	$164.00		9	$112.00		7	$52.00		2
+ Non Financial
+		AARP	$0.00		7	$0.00		4	$0.00		3
+		NTRA	$0.00		0	$0.00		0	$0.00		0
+		Total	$82,094.86	5,287	$66,987.00	4,502	$15,107.06	785
+ New Transactions	

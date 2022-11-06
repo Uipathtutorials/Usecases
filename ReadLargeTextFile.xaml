@@ -1,0 +1,92 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ReadLargeTextFile" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="936,515" sap2010:WorkflowViewState.IdRef="ReadLargeTextFile_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ReadLargeTextFile" sap:VirtualizedContainerService.HintSize="376,377" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="E:\UiPath Training Material\Usecases\Usecase_Process\Input\ReadLargeTextFile.txt" Name="str_FilePath" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="string fileName =@&quot;E:\UiPath Training Material\Usecases\Usecase_Process\Input\ReadLargeTextFile.txt&quot;;&#xD;&#xA;Console.WriteLine(&quot;Test1&quot;);&#xD;&#xA;using(System.IO.StreamReader sr = new System.IO.StreamReader(fileName))                &#xD;&#xA;{&#xD;&#xA;&#x9;int fileNumber =0;&#xD;&#xA;&#x9;Console.WriteLine(&quot;Test2&quot;);&#xD;&#xA;&#x9;while(!sr.EndOfStream)&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;int count=0;&#xD;&#xA;&#x9;&#x9;Console.WriteLine(&quot;Test3&quot;);&#xD;&#xA;&#x9;&#x9;using(System.IO.StreamWriter sw = new System.IO.StreamWriter(@&quot;E:\UiPath Training Material\Usecases\Usecase_Process\Input&quot;  + + + fileNumber + &quot;.txt&quot;))&#xD;&#xA;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;sw.AutoFlush = true;&#xD;&#xA;&#x9;&#x9;&#x9;Console.WriteLine(&quot;Test4&quot;);&#xD;&#xA;&#x9;&#x9;&#x9;while (sr.EndOfStream &amp;&amp; ++ count &lt; 2000000)&#xD;&#xA;&#x9;&#x9;&#x9;{&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;sw.WriteLine(sr.ReadLine());&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;}" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="334,174" sap2010:WorkflowViewState.IdRef="InvokeCode_2" Language="CSharp">
+      <ui:InvokeCode.Arguments>
+        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,276" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim FILE_NAME As String =in_FilePath&#xA;&#xA;Dim TextLine As String&#xA;&#xA;If System.IO.File.Exists( FILE_NAME ) = True Then&#xA;&#xA;Dim objReader As New System.IO.StreamReader(FILE_NAME)&#xA;&#xA;Do While objReader.Peek() &lt;&gt; -1&#xA;&#xA;TextLine = TextLine &amp; objReader.ReadLine() &amp; vbNewLine&#xA;MsgBox(TextLine)&#xA;Loop&#xA;Else&#xA;MsgBox(&quot;File Does Not Exist&quot;)&#xA;&#xA;End If" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="334,174" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+            <ui:InvokeCode.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">[str_FilePath]</InArgument>
+            </ui:InvokeCode.Arguments>
+          </ui:InvokeCode>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+  </Sequence>
+</Activity>
