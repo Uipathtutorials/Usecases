@@ -1,0 +1,9 @@
+TEXT:
+
+001 GENERAL COUNSIL AND
+
+
+
+REGEX PATTERN
+
+^0\d\d\s+\w.+

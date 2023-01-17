@@ -1,0 +1,22 @@
+Text:
+
+10/18/22 CRAD Review comments to AARP membership 0.80 $640.00
+disclaimers.AARP
+Our Ref. No.:056015-0154
+Invoice No.: 50506818
+Page  3
+Foley & Lardner LLP
+November 08, 2022
+
+10/18/22 SLHE Review and respond to various correspondence 1.90 $902.50
+Our Ref. No.:056015-0154
+Invoice No.: 50506818
+Page  3
+Foley & Lardner LLP
+November 08, 2022
+
+
+
+REGEX PATTERN
+
+(=?Our Ref)(.+\n)+(=?\w+\s\d+,\s\d+)

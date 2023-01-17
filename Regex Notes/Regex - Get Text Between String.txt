@@ -6,8 +6,3 @@ Get All text Between two string (Data can be multiple line with empty sapces and
 
 (?<=Date Timekeeper)[\S\s]*(?=Fee Total)    (This (?<=) will exclude Date Timekeeper)
 
-2: Replace Between Text 
-
-System.Text.RegularExpressions.Regex.Replace(GetText,"(?=Taxpayer Identification Number)[\S\s]*(?<=202\d)","")  
-
- (This (?<=) will include 2022)

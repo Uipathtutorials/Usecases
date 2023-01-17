@@ -72,10 +72,10 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="PDF_ExtractTable" sap:VirtualizedContainerService.HintSize="1950,6120" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -95,7 +95,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dtMasterName]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="1908,97" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="PDF\NeezamMasterNames.xlsx" />
-    <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="E:\UiPath Training Material\Usecases\Usecase_Process\PDF\Neezam PDF" sap:VirtualizedContainerService.HintSize="1908,5893" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+    <ui:ForEachFileX DisplayName="For Each File in Folder" Folder="E:\UiPath Training Material\Usecases\Usecase_Process\PDF\Neezam Arent Fox PDF" sap:VirtualizedContainerService.HintSize="1908,5893" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
       <ui:ForEachFileX.Body>
         <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
           <ActivityAction.Argument1>
@@ -311,7 +311,7 @@
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <If sap2010:Annotation.AnnotationText="Example: Research piercing corporate veil doctrine (Here first char of pierching is small)&#xD;&#xA;Example: Discuss ASI functions (Here ASI have first two char capital)" Condition="[Char.IsLower(word.Chars(0)) or (Char.IsUpper(word.Chars(0)) and Char.IsUpper(word.Chars(1)))]" DisplayName="If - First char of word is lower or  First &amp; Second char of word is Upper" sap:VirtualizedContainerService.HintSize="562,1196" sap2010:WorkflowViewState.IdRef="If_1">
+                                    <If sap2010:Annotation.AnnotationText="Example: Research piercing corporate veil doctrine (Here first char of pierching is small)&#xA;Example: Discuss ASI functions (Here ASI have first two char capital)" Condition="[Char.IsLower(word.Chars(0)) or (Char.IsUpper(word.Chars(0)) and Char.IsUpper(word.Chars(1)))]" DisplayName="If - First char of word is lower or  First &amp; Second char of word is Upper" sap:VirtualizedContainerService.HintSize="562,1196" sap2010:WorkflowViewState.IdRef="If_1">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -418,7 +418,7 @@
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:ForEach>
                             <AddToCollection x:TypeArguments="x:String" Collection="[lstAllLines]" DisplayName="Add To Collection - List" sap:VirtualizedContainerService.HintSize="640,32" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="[strtmp]" />
-                            <Assign sap:VirtualizedContainerService.HintSize="562,70" sap2010:WorkflowViewState.IdRef="Assign_23">
+                            <Assign sap:VirtualizedContainerService.HintSize="640,70" sap2010:WorkflowViewState.IdRef="Assign_23">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="x:Int32">[indexLines]</OutArgument>
                               </Assign.To>
@@ -438,7 +438,7 @@
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Assign sap2010:Annotation.AnnotationText="Here bot retrieve text which doesn't start with date.&#xD;&#xA;Split that text" DisplayName="Assign - Split string on space" sap:VirtualizedContainerService.HintSize="923,127" sap2010:WorkflowViewState.IdRef="Assign_38">
+                            <Assign sap2010:Annotation.AnnotationText="Here bot retrieve text which doesn't start with date.&#xA;Split that text" DisplayName="Assign - Split string on space" sap:VirtualizedContainerService.HintSize="923,127" sap2010:WorkflowViewState.IdRef="Assign_38">
                               <Assign.To>
                                 <OutArgument x:TypeArguments="s:String[]">[splitItemText]</OutArgument>
                               </Assign.To>
@@ -707,7 +707,7 @@
                           </Sequence>
                         </If.Else>
                       </If>
-                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1614,101" sap2010:WorkflowViewState.IdRef="LogMessage_7" Message="[&quot;After string manipulation&quot; +strtmp]" />
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1692,101" sap2010:WorkflowViewState.IdRef="LogMessage_7" Message="[&quot;After string manipulation&quot; +strtmp]" />
                     </Sequence>
                   </ActivityAction>
                 </ui:ForEach.Body>
@@ -718,7 +718,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:ForEach>
-              <ui:GenerateDataTable ColumnSizes="{x:Null}" NewLineSeparator="{x:Null}" Positions="{x:Null}" CSVParsing="True" ColumnSeparators="|" DataTable="[dtOutput]" DisplayName="Generate Data Table" sap:VirtualizedContainerService.HintSize="1692,61" sap2010:WorkflowViewState.IdRef="GenerateDataTable_1" Input="[String.Join(Environment.NewLine,lstAllLines)]">
+              <ui:GenerateDataTable ColumnSizes="{x:Null}" NewLineSeparator="{x:Null}" Positions="{x:Null}" CSVParsing="True" ColumnSeparators="|" DataTable="[dtOutput]" DisplayName="Generate Data Table" sap:VirtualizedContainerService.HintSize="1770,61" sap2010:WorkflowViewState.IdRef="GenerateDataTable_1" Input="[String.Join(Environment.NewLine,lstAllLines)]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -726,7 +726,7 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:GenerateDataTable>
-              <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[dtOutput]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="1692,125" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" WorkbookPath="[&quot;PDF\Neezam PDF Extract\&quot;+FileName+&quot;.xlsx&quot;]">
+              <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[dtOutput]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="1770,125" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" WorkbookPath="[&quot;PDF\Neezam PDF Extract\ArentFox_&quot;+FileName+&quot;.xlsx&quot;]">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>

@@ -1,0 +1,5 @@
+2: Replace Between Text 
+
+System.Text.RegularExpressions.Regex.Replace(GetText,"(?=Taxpayer Identification Number)[\S\s]*(?<=202\d)","")  
+
+ (This (?<=) will include 2022)

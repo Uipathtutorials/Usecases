@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="PDF_ExtractTable" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1363,4832" sap2010:WorkflowViewState.IdRef="PDF_ExtractTable_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="PDF_ExtractTable_Convington" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1363,4846" sap2010:WorkflowViewState.IdRef="PDF_ExtractTable_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
       <x:String>System.Activities</x:String>
@@ -74,7 +74,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PDF_ExtractTable" sap:VirtualizedContainerService.HintSize="1373,4767" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="PDF_ExtractTable" sap:VirtualizedContainerService.HintSize="1373,4781" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="GetText" />
       <Variable x:TypeArguments="x:String" Name="text1" />
@@ -89,89 +89,48 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="PDF\Neezam PDF\1.pdf" sap:VirtualizedContainerService.HintSize="1331,69" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[GetText]" />
-    <If Condition="[GetText.Contains(&quot;Streaming Service&quot;)]" sap:VirtualizedContainerService.HintSize="1331,878" sap2010:WorkflowViewState.IdRef="If_9">
-      <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="400,710" sap2010:WorkflowViewState.IdRef="Sequence_25">
+    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="E:\UiPath Training Material\Usecases\Usecase_Process\PDF\Neezam Convington PDF\Con_Invoice.pdf" sap:VirtualizedContainerService.HintSize="1331,69" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[GetText]" />
+    <Assign DisplayName="Assign GetText" sap:VirtualizedContainerService.HintSize="1331,70" sap2010:WorkflowViewState.IdRef="Assign_44">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[GetText]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(GetText,"(?=Date Timekeeper)[\S\s]*(?=Timekeeper Summary)").Value]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign GetText" sap:VirtualizedContainerService.HintSize="1331,70" sap2010:WorkflowViewState.IdRef="Assign_46">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[GetText]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(GetText,"(?=Total \d)[\S\s]*(?&lt;=Invoice No.: )\d+","")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign GetText" sap:VirtualizedContainerService.HintSize="1331,70" sap2010:WorkflowViewState.IdRef="Assign_47">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[GetText]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(GetText,"(?=Total \d)[\S\s]*(?&lt;=Invoice No.: )\d+","")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign GetText" sap:VirtualizedContainerService.HintSize="1331,70" sap2010:WorkflowViewState.IdRef="Assign_48">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[GetText]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(GetText,"(?=Streaming Service)[\S\s]*(?&lt;=Invoice No.: )\d+","")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1331,342" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400,254" sap2010:WorkflowViewState.IdRef="Sequence_27">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_3">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[GetText]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[GetText.Split({"Time Detail","Timekeeper Summary"},StringSplitOptions.None)(1)]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <Assign sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_4">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[GetText]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[GetText.Substring(0,GetText.IndexOf("Total")).Trim]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <Assign sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_5">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[text1]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[GetText.Substring(0,GetText.IndexOf("Page")).Replace("Date Timekeeper Description Hours","")]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <Assign sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_6">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[text2]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[GetText.Substring(GetText.LastIndexOf("Date Timekeeper"))]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <Assign sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_7">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[finalText]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[text1.Trim + Environment.NewLine + text2.Trim]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <Assign sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_8">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[finalText]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[finalText.Replace("Date Timekeeper Description Hours","").Trim]</InArgument>
-            </Assign.Value>
-          </Assign>
-        </Sequence>
-      </If.Then>
-      <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="400,474" sap2010:WorkflowViewState.IdRef="Sequence_26">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <Assign sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_42">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[GetText]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[GetText.Split({"Re:","Timekeeper Summary"},StringSplitOptions.None)(1)]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <Assign sap:VirtualizedContainerService.HintSize="358,70" sap2010:WorkflowViewState.IdRef="Assign_43">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[GetText]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[GetText.Substring(0,GetText.IndexOf("Fee Total")).Replace("Date Timekeeper Narrative Hours Value","").Replace("General","").Trim]</InArgument>
-            </Assign.Value>
-          </Assign>
-          <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'editable text'" sap:VirtualizedContainerService.HintSize="358,164" sap2010:WorkflowViewState.IdRef="SetValue_8" Text="[GetText]">
+          <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text 'editable text'" sap:VirtualizedContainerService.HintSize="358,164" sap2010:WorkflowViewState.IdRef="SetValue_9" Text="[GetText]">
             <ui:SetValue.Target>
               <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ea6233bc-11e5-4983-94f0-57b31401ab53" InformativeScreenshot="808a5fc44339d23dc0f6ac6066ed62c8" Selector="&lt;wnd app='notepad.exe' cls='Notepad' title='*Notepad' /&gt;&lt;wnd cls='Edit' /&gt;&lt;ctrl name='Text Editor' role='editable text' /&gt;">
                 <ui:Target.TimeoutMS>
@@ -184,8 +143,16 @@
             </ui:SetValue.Target>
           </ui:SetValue>
         </Sequence>
-      </If.Else>
-    </If>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
+    <Assign sap:VirtualizedContainerService.HintSize="1331,70" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[finalText]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[GetText.Replace("Date Timekeeper Description Hours","").Trim]</InArgument>
+      </Assign.Value>
+    </Assign>
     <Assign sap:VirtualizedContainerService.HintSize="1331,70" sap2010:WorkflowViewState.IdRef="Assign_19">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(x:String)">[lstAllLines]</OutArgument>
@@ -566,6 +533,6 @@
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
     <ui:GenerateDataTable ColumnSizes="{x:Null}" NewLineSeparator="{x:Null}" Positions="{x:Null}" CSVParsing="True" ColumnSeparators="|" DataTable="[dtOutput]" DisplayName="Generate Data Table" sap:VirtualizedContainerService.HintSize="1331,210" sap2010:WorkflowViewState.IdRef="GenerateDataTable_1" Input="[String.Join(Environment.NewLine,lstAllLines)]" />
-    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[dtOutput]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="1331,125" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" WorkbookPath="PDF\PDF_ExtractTableRegex.xlsx" />
+    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[dtOutput]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="1331,125" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" WorkbookPath="PDF\Neezam PDF Extract\PDF_ExtractTableRegexConvent.xlsx" />
   </Sequence>
 </Activity>
