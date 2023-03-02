@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="List" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="List" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:uasa="clr-namespace:UiPath.Activities.System.Arrays;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="y" Type="InArgument(x:String)" />
   </x:Members>
@@ -8,10 +8,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>934,785</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>936,836</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>List_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <sco:Collection x:TypeArguments="x:String">
+    <scg:List x:TypeArguments="x:String" Capacity="27">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -37,10 +37,12 @@
       <x:String>System.Runtime.InteropServices</x:String>
       <x:String>System.Collections.ObjectModel</x:String>
       <x:String>System.Activities.DynamicUpdate</x:String>
-    </sco:Collection>
+      <x:String>UiPath.Activities.System.Arrays</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <sco:Collection x:TypeArguments="AssemblyReference">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="25">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -65,38 +67,24 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
-    </sco:Collection>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+    </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="List" sap:VirtualizedContainerService.HintSize="307,720" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="List" sap:VirtualizedContainerService.HintSize="426,771" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="scg:List(x:String)" Name="MyList" />
+      <Variable x:TypeArguments="x:Boolean" Name="IsPresent" />
+      <Variable x:TypeArguments="scg:IList(x:String)" Name="MyList" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="265,70" sap2010:WorkflowViewState.IdRef="Assign_1">
-      <Assign.To>
-        <OutArgument x:TypeArguments="scg:List(x:String)">[MyList]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="scg:List(x:String)">[New List(of String)]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <AddToCollection x:TypeArguments="x:String" Collection="[MyList]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="265,32" sap2010:WorkflowViewState.IdRef="AddToCollection`1_1" Item="UiPath" />
-    <AddToCollection x:TypeArguments="x:String" Collection="[MyList]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="265,32" sap2010:WorkflowViewState.IdRef="AddToCollection`1_2" Item="AA" />
-    <AddToCollection x:TypeArguments="x:String" Collection="[MyList]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="265,32" sap2010:WorkflowViewState.IdRef="AddToCollection`1_3" Item="BP" />
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="265,71" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[MyList.Count.ToString]" />
-    <Assign sap:VirtualizedContainerService.HintSize="265,70" sap2010:WorkflowViewState.IdRef="Assign_2">
-      <Assign.To>
-        <OutArgument x:TypeArguments="scg:List(x:String)">[MyList]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="scg:List(x:String)">[(from item in MyList where item.Contains("UiPath")).ToList]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="265,71" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[MyList.Count.ToString]" />
+    <ui:CreateList x:TypeArguments="x:String" DisplayName="Create List" sap:VirtualizedContainerService.HintSize="384,142" sap2010:WorkflowViewState.IdRef="CreateList`1_1" NewList="[MyList]" />
+    <uasa:AppendItemToList x:TypeArguments="x:String" ItemIndex="{x:Null}" DisplayName="Append Item to List" sap:VirtualizedContainerService.HintSize="384,142" sap2010:WorkflowViewState.IdRef="AppendItemToList`1_2" ItemToAppend="Power Automate" List="[MyList]" />
+    <AddToCollection x:TypeArguments="x:String" Collection="[MyList]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="384,32" sap2010:WorkflowViewState.IdRef="AddToCollection`1_4" Item="UiPath" />
+    <AddToCollection x:TypeArguments="x:String" Collection="[MyList]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="384,32" sap2010:WorkflowViewState.IdRef="AddToCollection`1_5" Item="Blue Prism" />
+    <AddToCollection x:TypeArguments="x:String" Collection="[MyList]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="384,32" sap2010:WorkflowViewState.IdRef="AddToCollection`1_6" Item="Automation Anywhere" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="384,101" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[MyList.Count]" />
   </Sequence>
 </Activity>
