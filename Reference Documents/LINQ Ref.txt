@@ -1,0 +1,7 @@
+https://forum.uipath.com/t/howto-linq-vb-net-learning-catalogue/325671
+
+https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/let-clause
+
+https://www.dotnettricks.com/learn/linq
+
+https://www.tutorialsteacher.com/linq/linq-grouping-operator-groupby-tolookup
